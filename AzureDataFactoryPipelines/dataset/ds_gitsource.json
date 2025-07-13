@@ -1,0 +1,34 @@
+{
+	"name": "ds_gitsource",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_githubsource",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"load_flag": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "source_copy_datasets"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "anshlambagit/Azure-DE-Project-Resources/refs/heads/main/Raw%20Data/@{dataset().load_flag}",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
